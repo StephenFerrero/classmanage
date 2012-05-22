@@ -1,0 +1,18 @@
+{% extends "manage_base.html" %}
+
+
+{% block body %}
+<div class="inner-page-title">
+	<h2>Add Student</h2>
+	<span>Add a new student to the system.</span>
+</div>
+<div class="content-box">
+	<form action="." method="post" class="forms">{% csrf_token %}
+		<ul>
+			{{ form.as_ul }}
+		</ul>
+	<input class="ui-state-default ui-corner-all ui-button" type="submit" value="Submit" />
+	</form>
+</div>
+
+{% endblock %}

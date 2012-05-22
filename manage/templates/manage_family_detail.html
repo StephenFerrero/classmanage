@@ -1,0 +1,58 @@
+{% extends "manage_base.html" %}
+<!-- TODO List associated contacts and students on this page -->
+
+{% block body %}
+
+<script type="text/javascript" src="{{ STATIC_URL }}js/ui/ui.tabs.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	// Tabs
+	$('#tabs, #tabs2, #tabs5').tabs();
+});
+</script>
+
+<div class="inner-page-title">
+	<h2>Family Detail:</h2>
+	<span></span>
+</div>
+	<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs"> 
+	          <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+	            <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-1">Overview</a></li>
+	            <li class="ui-state-default ui-corner-top"><a href="#tabs-2">Enrollment</a></li>
+	            <li class="ui-state-default ui-corner-top"><a href="#tabs-3">Transactions</a></li>
+	          </ul>
+	          <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-1">
+		<!-- TODO Add listing of students assigned to family -->
+				<h2>Students:</h2>
+				<a class="btn ui-state-default ui-corner-all" href="">
+				<span class="ui-icon ui-icon-plus"></span>
+				Add Student
+				</a>
+				<div class="clear"></div>
+				<div class="hastable">
+				    <table id="sort-table">
+						<tr><th></th><td></td></tr>
+						<tr><th>Family</th><td>{{ family.name }}</td></tr>
+						<tr><th>Address</th><td>{{ family.address }}</td></tr>
+						<tr><th>City</th><td>{{ family.city }}</td></tr>
+						<tr><th>Zip</th><td>{{ family.zip }}</td></tr>
+						<tr><th>Phone</th><td>{{ family.primary_phone }}</td></tr>
+					</table>
+				</div>
+			  </div>
+
+	          <div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-2">
+				Phasellus mattis tincidunt nibh. Cras orci urna, blandit 
+	            id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non 
+	            nisl. Fusce sed lorem in enim dictum bibendum.
+			  </div>
+	          <div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-3">
+				Nam dui erat, auctor a, dignissim quis, sollicitudin 
+	            eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat 
+	            vestibulum, lacus. Mauris porttitor ullamcorper augue.
+			  </div>
+	        </div>
+	<div class="clear"></div>
+	
+
+{% endblock %}

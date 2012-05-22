@@ -1,0 +1,41 @@
+{% extends "manage_base.html" %}
+
+
+{% block body %}
+<div class="inner-page-title">
+	<h2>Families:</h2>
+	<span>Listing of all families in the system.</span>
+</div>
+<a class="btn ui-state-default ui-corner-all" href="{% url create_family %}">
+	<span class="ui-icon ui-icon-plus"></span>
+	Add Family
+</a>
+<div class="clear"></div>
+<div class="hastable">
+    <table id="sort-table">
+		<thead>
+			<tr>
+					<th></th>
+					<th>Family</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>Zip</th>
+					<th>Phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for family in object_list %}
+			<tr>
+				<td class="center"></td>
+				<td><a href="{% url detail_family pk=family.id %}">{{ family.name }}</a></td>
+				<td>{{ family.address }}</td>
+				<td>{{ family.city }}</td>
+				<td>{{ family.zip }}</td>
+				<td>{{ family.primary_phone }}</td>
+				<!-- TODO Add listing of students assigned to family -->
+			</tr>
+	        {% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
